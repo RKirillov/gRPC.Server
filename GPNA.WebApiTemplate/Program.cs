@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GPNA.WebApiSender
+namespace GPNA.WebApiReceiver
 {
     public class Program
     {

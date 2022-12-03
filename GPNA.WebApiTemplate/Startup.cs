@@ -1,7 +1,7 @@
 
 using AutoMapper;
 using GPNA.Extensions.Configurations;
-using GPNA.WebApiSender.Configuration;
+using GPNA.WebApiReceiver.Configuration;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,7 +14,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
 
-namespace GPNA.WebApiSender
+namespace GPNA.WebApiReceiver
 {
     public class Startup
     {
@@ -39,9 +39,9 @@ namespace GPNA.WebApiSender
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GPNA.WebApiSender", Version = "v1.0" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GPNA.WebApiReceiver", Version = "v1.0" });
             });
-            services.AddSingleton(_configuration.GetSection<JsonConfiguration>());
+            //services.AddSingleton(_configuration.GetSection<JsonConfiguration>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +51,7 @@ namespace GPNA.WebApiSender
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GPNA.WebApiSender v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GPNA.WebApiReceiver v1"));
             }
             app.UseProblemDetails();
             app.UseCors(builder =>

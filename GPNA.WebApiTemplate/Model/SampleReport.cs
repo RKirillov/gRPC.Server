@@ -1,4 +1,4 @@
-﻿namespace GPNA.WebApiSender.Model
+﻿namespace GPNA.WebApiReceiver.Model
 {
     #region Using
     using System;

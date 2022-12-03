@@ -1,16 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
-using System.Xml.Linq;
-using GPNA.WebApiSender.Model;
-using GPNA.WebApiSender.Configuration;
-using GPNA.WebApiSender;
+using GPNA.WebApiReceiver.Model;
+using System.Net;
+using Newtonsoft.Json;
 
-namespace GPNA.WebApiSender.Controllers
+namespace GPNA.WebApiReceiver.Controllers
 {
     [ApiController]
     [Produces("application/json")]
@@ -19,15 +15,15 @@ namespace GPNA.WebApiSender.Controllers
     public class WeatherForecastController : ControllerBase
     {
         #region Using
-        private readonly JsonConfiguration? _jsonConfiguration;
+        private readonly IMapper _mapper;
         #endregion Using
 
 
         #region Constructors
-        public WeatherForecastController(JsonConfiguration? jsonConfiguration,
+        public WeatherForecastController(IMapper mapper,
             ILogger<WeatherForecastController> logger)
         {
-            _jsonConfiguration = jsonConfiguration;
+            _mapper=mapper;
             _logger = logger;
         }
         #endregion Constructors
@@ -39,30 +35,22 @@ namespace GPNA.WebApiSender.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
-
         #region Methods
         /// <summary>
-        /// Получить все топики
+        /// Получить информацию
         /// </summary>
         /// <response code="200">Коллекция объектов топиков</response>
-        [HttpGet("GetAll")]
+        [HttpPost("Add")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<SampleReport>> GetAll()
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<SampleReport> Add()
         {
-            SampleReport sampleReport = new() { Name = _jsonConfiguration.Name, Value = _jsonConfiguration.Value };
-            return Ok(sampleReport);
+            using (WebClient wc = new())
+            {
+                var json = wc.DownloadString("http://localhost:5000/api/WeatherForecast/GetAll");
+                var entity = JsonConvert.DeserializeObject<SampleReport>(json);
+                return Ok(entity);
+            }
         }
         #endregion Methods
     }

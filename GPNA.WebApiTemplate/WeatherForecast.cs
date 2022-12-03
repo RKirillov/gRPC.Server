@@ -1,6 +1,6 @@
 using System;
 
-namespace GPNA.WebApiSender
+namespace GPNA.WebApiReceiver
 {
     public class WeatherForecast
     {
