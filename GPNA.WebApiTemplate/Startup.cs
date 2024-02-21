@@ -1,7 +1,7 @@
 
 using AutoMapper;
-using gRPCClient.Configuration;
-using gRPCClient.Extensions;
+using gRPCServer.Configuration;
+using gRPCServer.Extensions;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -32,38 +32,14 @@ namespace GPNA.gRPCServer
 
             services.AddProblemDetails(ConfigureProblemDetails);
             services.AddControllers();
-            services.gRPCConfigureDouble(
-                new HttpClientConfiguration
+            services.gRPCConfigureServer(new gRPCServerConfiguration
                 {
-                    KeepAlivePingDelay = 10,
-                    KeepAlivePingTimeout = 10,
-                    PortNumber = 5000,
-                    EnableMultipleHttp2Connections = true
-                },
-                new gRPCClientConfiguration
-                {
-                    BatchCount = 10000,
-                    DeadLineSec = 60,
-                    WithWaitForReady = true
+                    HelthCheckPeriod = 30,
+                    HelthCheckDelay = 5,
+                    EnableDetailedErrors = true,
+                    BatchCount = 100000
                 }
-            );
-
-            services.gRPCConfigureBool(
-                new HttpClientConfiguration
-                {
-                    KeepAlivePingDelay = 10,
-                    KeepAlivePingTimeout = 10,
-                    PortNumber = 5000,
-                    EnableMultipleHttp2Connections = true
-                },
-                new gRPCClientConfiguration
-                {
-                    BatchCount = 10000,
-                    DeadLineSec = 60,
-                    WithWaitForReady = true
-                }
-            );
-
+                );
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
@@ -118,12 +94,14 @@ namespace GPNA.gRPCServer
                     .AllowAnyMethod());
 
             app.UseRouting();
+          
             app.UseEndpoints(endpoints =>
             {
 
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client..."); });
                 endpoints.MapControllers();
             });
+            app.gRPCConfigureAppBuilder(true, true);
 
         }
 
