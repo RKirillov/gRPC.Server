@@ -1,4 +1,4 @@
-﻿namespace GPNA.WebApiReceiver.Configuration
+﻿namespace GPNA.gRPCClient.Configuration
 {
     #region Using
     using System;
@@ -7,7 +7,7 @@
     /// <summary>
     /// Конфигурация передаваемого сообщения
     /// </summary>
-    public class JsonConfiguration
+    public class MessageConfiguration
     {
         /// <summary>
         /// Имя
@@ -17,6 +17,6 @@
         /// <summary>
         /// Год
         /// </summary>
-        public int Value { get; set; } = 0;
+        public int  Value { get; set; } = 0;
     }
 }
