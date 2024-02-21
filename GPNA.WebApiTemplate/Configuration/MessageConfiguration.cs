@@ -1,4 +1,4 @@
-﻿namespace GPNA.gRPCClient.Configuration
+﻿namespace GPNA.gRPCServer.Configuration
 {
     #region Using
     using System;

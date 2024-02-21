@@ -1,82 +1,82 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>GPNA.gRPCClient</name>
+        <name>GPNA.gRPCServer</name>
     </assembly>
     <members>
-        <member name="T:GPNA.gRPCClient.Configuration.MessageConfiguration">
+        <member name="T:GPNA.gRPCServer.Configuration.MessageConfiguration">
             <summary>
             Конфигурация передаваемого сообщения
             </summary>
         </member>
-        <member name="P:GPNA.gRPCClient.Configuration.MessageConfiguration.Name">
+        <member name="P:GPNA.gRPCServer.Configuration.MessageConfiguration.Name">
             <summary>
             Имя
             </summary>
         </member>
-        <member name="P:GPNA.gRPCClient.Configuration.MessageConfiguration.Value">
+        <member name="P:GPNA.gRPCServer.Configuration.MessageConfiguration.Value">
             <summary>
             Год
             </summary>
         </member>
-        <member name="M:GPNA.gRPCClient.Controllers.WeatherForecastController.GetAllAsync">
+        <member name="M:GPNA.gRPCServer.Controllers.WeatherForecastController.GetAllAsync">
             <summary>
             Получить все топики
             </summary>
             <response code="200">Коллекция объектов топиков</response>
         </member>
-        <member name="T:GPNA.gRPCClient.Model.SampleReport">
+        <member name="T:GPNA.gRPCServer.Model.SampleReport">
             <summary>
             Регистр отчетов
             </summary>
         </member>
-        <member name="P:GPNA.gRPCClient.Model.SampleReport.Name">
+        <member name="P:GPNA.gRPCServer.Model.SampleReport.Name">
             <summary>
             Наименование параметра
             </summary>
         </member>
-        <member name="P:GPNA.gRPCClient.Model.SampleReport.Value">
+        <member name="P:GPNA.gRPCServer.Model.SampleReport.Value">
             <summary>
             Значение
             </summary>
         </member>
-        <member name="T:GPNA.gRPCClient.GreetReflection">
+        <member name="T:GPNA.gRPCServer.GreetReflection">
             <summary>Holder for reflection information generated from Protos/greet.proto</summary>
         </member>
-        <member name="P:GPNA.gRPCClient.GreetReflection.Descriptor">
+        <member name="P:GPNA.gRPCServer.GreetReflection.Descriptor">
             <summary>File descriptor for Protos/greet.proto</summary>
         </member>
-        <member name="T:GPNA.gRPCClient.HelloRequest">
+        <member name="T:GPNA.gRPCServer.HelloRequest">
             <summary>
             сообщение от клиента содержит name
             </summary>
         </member>
-        <member name="F:GPNA.gRPCClient.HelloRequest.NameFieldNumber">
+        <member name="F:GPNA.gRPCServer.HelloRequest.NameFieldNumber">
             <summary>Field number for the "Name" field.</summary>
         </member>
-        <member name="F:GPNA.gRPCClient.HelloRequest.ValueFieldNumber">
+        <member name="F:GPNA.gRPCServer.HelloRequest.ValueFieldNumber">
             <summary>Field number for the "Value" field.</summary>
         </member>
-        <member name="T:GPNA.gRPCClient.HelloReply">
+        <member name="T:GPNA.gRPCServer.HelloReply">
             <summary>
             сообщение клиенту содержит message
             </summary>
         </member>
-        <member name="F:GPNA.gRPCClient.HelloReply.MessageFieldNumber">
+        <member name="F:GPNA.gRPCServer.HelloReply.MessageFieldNumber">
             <summary>Field number for the "message" field.</summary>
         </member>
-        <member name="T:GPNA.gRPCClient.Greeter">
+        <member name="T:GPNA.gRPCServer.Greeter">
             <summary>
             определение сервиса
             </summary>
         </member>
-        <member name="P:GPNA.gRPCClient.Greeter.Descriptor">
+        <member name="P:GPNA.gRPCServer.Greeter.Descriptor">
             <summary>Service descriptor</summary>
         </member>
-        <member name="T:GPNA.gRPCClient.Greeter.GreeterBase">
+        <member name="T:GPNA.gRPCServer.Greeter.GreeterBase">
             <summary>Base class for server-side implementations of Greeter</summary>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterBase.SayHello(GPNA.gRPCClient.HelloRequest,Grpc.Core.ServerCallContext)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterBase.SayHello(GPNA.gRPCServer.HelloRequest,Grpc.Core.ServerCallContext)">
             <summary>
             отправка сообщения
             </summary>
@@ -84,25 +84,25 @@
             <param name="context">The context of the server-side call handler being invoked.</param>
             <returns>The response to send back to the client (wrapped by a task).</returns>
         </member>
-        <member name="T:GPNA.gRPCClient.Greeter.GreeterClient">
+        <member name="T:GPNA.gRPCServer.Greeter.GreeterClient">
             <summary>Client for Greeter</summary>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.#ctor(Grpc.Core.ChannelBase)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.#ctor(Grpc.Core.ChannelBase)">
             <summary>Creates a new client for Greeter</summary>
             <param name="channel">The channel to use to make remote calls.</param>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.#ctor(Grpc.Core.CallInvoker)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.#ctor(Grpc.Core.CallInvoker)">
             <summary>Creates a new client for Greeter that uses a custom <c>CallInvoker</c>.</summary>
             <param name="callInvoker">The callInvoker to use to make remote calls.</param>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.#ctor">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.#ctor">
             <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
             <summary>Protected constructor to allow creation of configured clients.</summary>
             <param name="configuration">The client configuration.</param>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.SayHello(GPNA.gRPCClient.HelloRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.SayHello(GPNA.gRPCServer.HelloRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
             <summary>
             отправка сообщения
             </summary>
@@ -112,7 +112,7 @@
             <param name="cancellationToken">An optional token for canceling the call.</param>
             <returns>The response received from the server.</returns>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.SayHello(GPNA.gRPCClient.HelloRequest,Grpc.Core.CallOptions)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.SayHello(GPNA.gRPCServer.HelloRequest,Grpc.Core.CallOptions)">
             <summary>
             отправка сообщения
             </summary>
@@ -120,7 +120,7 @@
             <param name="options">The options for the call.</param>
             <returns>The response received from the server.</returns>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.SayHelloAsync(GPNA.gRPCClient.HelloRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.SayHelloAsync(GPNA.gRPCServer.HelloRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
             <summary>
             отправка сообщения
             </summary>
@@ -130,7 +130,7 @@
             <param name="cancellationToken">An optional token for canceling the call.</param>
             <returns>The call object.</returns>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.SayHelloAsync(GPNA.gRPCClient.HelloRequest,Grpc.Core.CallOptions)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.SayHelloAsync(GPNA.gRPCServer.HelloRequest,Grpc.Core.CallOptions)">
             <summary>
             отправка сообщения
             </summary>
@@ -138,14 +138,14 @@
             <param name="options">The options for the call.</param>
             <returns>The call object.</returns>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.GreeterClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+        <member name="M:GPNA.gRPCServer.Greeter.GreeterClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
             <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.BindService(GPNA.gRPCClient.Greeter.GreeterBase)">
+        <member name="M:GPNA.gRPCServer.Greeter.BindService(GPNA.gRPCServer.Greeter.GreeterBase)">
             <summary>Creates service definition that can be registered with a server</summary>
             <param name="serviceImpl">An object implementing the server-side handling logic.</param>
         </member>
-        <member name="M:GPNA.gRPCClient.Greeter.BindService(Grpc.Core.ServiceBinderBase,GPNA.gRPCClient.Greeter.GreeterBase)">
+        <member name="M:GPNA.gRPCServer.Greeter.BindService(Grpc.Core.ServiceBinderBase,GPNA.gRPCServer.Greeter.GreeterBase)">
             <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
             Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
             <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>

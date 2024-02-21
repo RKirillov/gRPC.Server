@@ -1,10 +1,10 @@
-﻿using GPNA.gRPCClient.ServiceTagBool;
-using GPNA.gRPCClient.ServiceTagDouble;
+﻿using GPNA.gRPCServer.ServiceTagBool;
+using GPNA.gRPCServer.ServiceTagDouble;
 using gRPCClient;
 using gRPCClient.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace GPNA.gRPCClient.Extensions
+namespace GPNA.gRPCServer.Extensions
 {
     public static class gRPCClientExtensions
     {

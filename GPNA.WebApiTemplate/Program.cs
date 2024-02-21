@@ -2,7 +2,7 @@
 using NLog.Web;
 using gRPCClient.Extensions;
 
-namespace GPNA.gRPCClient
+namespace GPNA.gRPCServer
 {
     public class Program
     {

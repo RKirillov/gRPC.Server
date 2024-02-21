@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 
 
-namespace GPNA.gRPCClient.ServiceTagDouble
+namespace GPNA.gRPCServer.ServiceTagDouble
 {
     public class ClientServiceDouble_ : BackgroundService, IClientServiceDouble_
     {

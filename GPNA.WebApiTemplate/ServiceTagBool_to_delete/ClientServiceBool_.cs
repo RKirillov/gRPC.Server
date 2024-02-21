@@ -5,7 +5,7 @@ using gRPCClient.Configuration;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 
-namespace GPNA.gRPCClient.ServiceTagBool
+namespace GPNA.gRPCServer.ServiceTagBool
 {
     public class ClientServiceBool_ : BackgroundService, IClientServiceBool_
     {
