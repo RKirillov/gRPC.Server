@@ -1,6 +1,5 @@
 
 using NLog.Web;
-
 namespace GPNA.gRPCServer
 {
     public class Program
@@ -37,6 +36,6 @@ namespace GPNA.gRPCServer
                             logging.SetMinimumLevel(LogLevel.Trace);
                         })
                         .UseNLog();
-                });
+                }).UseWindowsService().UseSystemd();
     }
 }
